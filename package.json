@@ -1,0 +1,75 @@
+{
+  "name": "vue3-ai-sidebar",
+  "version": "1.0.11",
+  "description": "一个基于 Vue3 + Element Plus 的 AI 侧边栏助手组件，支持 Dify API 接入",
+  "type": "module",
+  "main": "dist/vue3-ai-sidebar.umd.js",
+  "module": "dist/vue3-ai-sidebar.es.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "build:ai-sidebar": "node src/components/ai-sidebar/build.js"
+  },
+  "keywords": [
+    "vue3",
+    "element-plus",
+    "ai",
+    "chatbot",
+    "sidebar",
+    "dify",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/vue3-ai-sidebar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/vue3-ai-sidebar/issues"
+  },
+  "homepage": "https://github.com/yourusername/vue3-ai-sidebar#readme",
+  "peerDependencies": {
+    "@vueuse/core": "^10.0.0",
+    "vue": "^3.3.0"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@vueuse/core": "^10.9.0",
+    "axios": "^1.8.1",
+    "element-plus": "^2.3.8",
+    "highlight.js": "^11.8.0",
+    "markdown-it": "^13.0.1",
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^13.0.7",
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "@unocss/preset-attributify": "66.1.0-beta.3",
+    "@unocss/preset-icons": "66.1.0-beta.3",
+    "@unocss/preset-typography": "66.1.0-beta.3",
+    "@unocss/preset-wind": "66.1.0-beta.3",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.22.0",
+    "fs-extra": "^11.3.0",
+    "prettier": "^3.2.5",
+    "sass": "^1.71.1",
+    "typescript": "~5.7.2",
+    "unocss": "66.1.0-beta.3",
+    "vite": "^6.2.0",
+    "vue-tsc": "^2.2.4"
+  }
+}
