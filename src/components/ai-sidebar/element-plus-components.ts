@@ -1,6 +1,6 @@
 // 导入Element Plus及其图标
-import ElementPlus from 'element-plus'
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+// import ElementPlus from 'element-plus'
+// import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 // 导入常用的Element Plus组件
 import {
@@ -30,7 +30,7 @@ import 'element-plus/dist/index.css'
 import 'highlight.js/styles/github.css'
 
 // 导出Element Plus和图标
-export { ElementPlus, ElementPlusIconsVue }
+// export { ElementPlus, ElementPlusIconsVue }
 
 // 导出常用Element Plus组件
 export {
@@ -75,7 +75,7 @@ export const ElementPlusIcons = {
 // 创建一个注册函数
 export function registerElementPlusComponents(app: any) {
   // 注册Element Plus
-  app.use(ElementPlus)
+  // app.use(ElementPlus)
 
   // 注册常用组件
   Object.entries(ElementPlusComponents).forEach(([name, component]) => {

@@ -170,9 +170,7 @@
     </div>
 
     <!-- 输入框 -->
-    <div
-      class="p-3 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800"
-    >
+    <div class="p-3 bg-white dark:bg-gray-800">
       <el-input
         v-model="inputMessage"
         :placeholder="config.placeholder"

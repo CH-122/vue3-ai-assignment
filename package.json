@@ -1,11 +1,11 @@
 {
   "name": "vue3-ai-sidebar",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "一个基于 Vue3 + Element Plus 的 AI 侧边栏助手组件，支持 Dify API 接入",
   "type": "module",
   "main": "dist/vue3-ai-sidebar.umd.js",
   "module": "dist/vue3-ai-sidebar.es.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/components/ai-sidebar/index.d.ts",
   "files": [
     "dist",
     "README.md",
@@ -13,11 +13,12 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vite build && tsx scripts/generate-types.ts",
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "build:ai-sidebar": "node src/components/ai-sidebar/build.js"
+    "build:ai-sidebar": "node src/components/ai-sidebar/build.js",
+    "generate-types": "tsx scripts/generate-types.ts"
   },
   "keywords": [
     "vue3",
@@ -66,6 +67,7 @@
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
     "terser": "^5.39.0",
+    "tsx": "^4.19.3",
     "typescript": "~5.7.2",
     "unocss": "66.1.0-beta.3",
     "vite": "^6.2.0",

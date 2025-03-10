@@ -10,7 +10,7 @@
 - 🔥 支持 Markdown 渲染
 - 💻 代码高亮显示
 - 🔄 历史消息记录
-- 🎯 TypeScript 支持
+- 🎯 完整的 TypeScript 类型支持
 - 🛠 高度可配置
 - 📦 内置 Element Plus 和 UnoCSS，无需额外引入
 
@@ -26,6 +26,24 @@ pnpm add vue3-ai-sidebar
 # Yarn
 yarn add vue3-ai-sidebar
 ```
+
+## 类型支持
+
+本组件库提供完整的 TypeScript 类型声明文件，存放在 `dist/types` 目录中。这些类型声明文件可以帮助开发者在使用本组件库时获得更好的类型提示和类型检查。
+
+```typescript
+import { AiSidebar, type AiSidebarConfig } from 'vue3-ai-sidebar'
+
+// 类型提示和类型检查
+const config: AiSidebarConfig = {
+  apiKey: 'your-api-key',
+  theme: 'light', // 自动提示可选值: 'light' | 'dark'
+  position: 'right', // 自动提示可选值: 'left' | 'right'
+  // ...其他配置
+}
+```
+
+更多关于类型声明文件的信息，请查看 [类型声明文件文档](./README-types.md)。
 
 ## 快速开始
 
