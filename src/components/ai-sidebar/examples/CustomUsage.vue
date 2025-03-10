@@ -88,21 +88,21 @@ function handleSend(params: SendMessageParams) {
 }
 
 // 直接调用组件方法示例
-function sendCustomMessage() {
-  aiSidebarRef.value?.sendMessage({
-    content: '这是一个自定义消息',
-    query: '这是实际发送给API的查询内容', // 可选，覆盖content
-    inputs: {
-      custom_param1: '值1',
-      custom_param2: '值2',
-    },
-  })
-}
+// function sendCustomMessage() {
+//   aiSidebarRef.value?.sendMessage({
+//     content: '这是一个自定义消息',
+//     query: '这是实际发送给API的查询内容', // 可选，覆盖content
+//     inputs: {
+//       custom_param1: '值1',
+//       custom_param2: '值2',
+//     },
+//   })
+// }
 
-// 清空对话示例
-function clearConversation() {
-  aiSidebarRef.value?.clearMessages()
-}
+// // 清空对话示例
+// function clearConversation() {
+//   aiSidebarRef.value?.clearMessages()
+// }
 </script>
 
 <style scoped>

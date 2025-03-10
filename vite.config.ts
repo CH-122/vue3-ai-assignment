@@ -56,11 +56,18 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@/styles/variables.scss" as *;`,
+        // additionalData: `@use "@/styles/variables.scss" as *;`,
       },
     },
   },
   build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
     lib: {
       entry: resolve(__dirname, 'src/components/ai-sidebar/index.ts'),
       name: 'Vue3AiSidebar',

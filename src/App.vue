@@ -61,6 +61,7 @@ const aiConfig: AiSidebarConfig = {
   theme: 'light',
   showAskQuestion: true,
   showResizeHandle: true,
+  placeholder: '请输入您的问题...',
 }
 
 // 打开侧边栏

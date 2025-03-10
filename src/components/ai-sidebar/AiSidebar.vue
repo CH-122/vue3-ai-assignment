@@ -514,62 +514,198 @@ defineExpose({
 })
 </script>
 
-<style>
+<style lang="scss">
 .ai-sidebar {
   @apply transition-transform duration-300 shadow-xl;
-}
 
-.ai-sidebar .el-scrollbar__wrap {
-  @apply overflow-x-hidden;
-}
+  .el-scrollbar__wrap {
+    @apply overflow-x-hidden;
+  }
 
-.ai-sidebar .el-textarea__inner {
-  @apply text-gray-900 dark:text-gray-100 min-h-60px dark:bg-gray-700 dark:border-gray-600;
-}
+  .el-textarea__inner {
+    @apply text-gray-900 dark:text-gray-100 min-h-60px dark:bg-gray-700 dark:border-gray-600;
+  }
 
-.ai-sidebar .el-card {
-  @apply border overflow-hidden transition-shadow duration-300;
-}
+  .el-card {
+    @apply border overflow-hidden transition-shadow duration-300;
+  }
 
-.ai-sidebar .el-card__body {
-  @apply p-4;
-}
+  .el-card__body {
+    @apply p-4;
+  }
 
-.ai-sidebar pre {
-  @apply bg-gray-50 dark:bg-gray-800 p-4 rd-lg overflow-x-auto my-3;
-}
+  pre {
+    @apply bg-gray-50 dark:bg-gray-800 p-4 rd-lg overflow-x-auto my-3;
+  }
 
-.ai-sidebar code {
-  @apply font-mono text-sm;
-}
+  code {
+    @apply font-mono text-sm;
+  }
 
-.ai-sidebar p {
-  @apply mb-3 text-gray-800 dark:text-gray-200;
-}
+  p {
+    @apply mb-3 text-gray-800 dark:text-gray-200;
+  }
 
-.ai-sidebar ul {
-  @apply list-disc list-inside mb-3;
-}
+  ul {
+    @apply list-disc list-inside mb-3;
+  }
 
-.ai-sidebar ol {
-  @apply list-decimal list-inside mb-3;
-}
+  ol {
+    @apply list-decimal list-inside mb-3;
+  }
 
-.ai-sidebar a {
-  @apply text-blue-600 dark:text-blue-400 hover:underline;
-}
+  a {
+    @apply text-blue-600 dark:text-blue-400 hover:underline;
+  }
 
-.ai-sidebar blockquote {
-  @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 my-3 text-gray-600 dark:text-gray-400;
+  blockquote {
+    @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 my-3 text-gray-600 dark:text-gray-400;
+  }
+
+  .prose {
+    @apply mb-0;
+  }
+
+  .prose-sm {
+    font-size: 0.875rem;
+    line-height: 1.5;
+
+    p {
+      @apply mb-2;
+    }
+
+    pre {
+      @apply p-3 my-2 rd-lg overflow-x-auto;
+      background-color: #f8f9fa;
+    }
+
+    code {
+      @apply font-mono text-xs;
+    }
+
+    ul,
+    ol {
+      @apply mb-2 pl-5;
+    }
+
+    blockquote {
+      @apply pl-3 my-2 border-l-4 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400;
+    }
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: #998;
+    font-style: italic;
+  }
+
+  /* 代码高亮样式 */
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #333;
+    background: #f8f9fa;
+  }
+
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-subst {
+    color: #d73a49;
+    font-weight: bold;
+  }
+
+  .hljs-number,
+  .hljs-literal,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-tag .hljs-attr {
+    color: #005cc5;
+  }
+
+  .hljs-string,
+  .hljs-doctag {
+    color: #032f62;
+  }
+
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-id {
+    color: #6f42c1;
+    font-weight: bold;
+  }
+
+  .hljs-subst {
+    font-weight: normal;
+  }
+
+  .hljs-type,
+  .hljs-class .hljs-title {
+    color: #458;
+    font-weight: bold;
+  }
+
+  .hljs-tag,
+  .hljs-name,
+  .hljs-attribute {
+    color: #000080;
+    font-weight: normal;
+  }
+
+  .hljs-regexp,
+  .hljs-link {
+    color: #009926;
+  }
+
+  .hljs-symbol,
+  .hljs-bullet {
+    color: #990073;
+  }
+
+  .hljs-built_in,
+  .hljs-builtin-name {
+    color: #0086b3;
+  }
+
+  .hljs-meta {
+    color: #999;
+    font-weight: bold;
+  }
+
+  .hljs-deletion {
+    background: #fdd;
+  }
+
+  .hljs-addition {
+    background: #dfd;
+  }
+
+  .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .hljs-strong {
+    font-weight: bold;
+  }
+
+  /* 用户消息样式 */
+  .user-message {
+    @apply bg-blue-100 dark:bg-blue-900/30;
+  }
+
+  /* AI消息样式 */
+  .ai-message {
+    @apply bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700;
+  }
 }
 
 /* 新的resize-handle样式 */
 .resize-handle {
   transition: background-color 0.3s;
-}
 
-.resize-handle:hover {
-  background-color: rgba(96, 165, 250, 0.3) !important;
+  &:hover {
+    background-color: rgba(96, 165, 250, 0.3) !important;
+  }
 }
 
 /* 动画效果 */
@@ -581,142 +717,5 @@ defineExpose({
 .message-enter-from,
 .message-leave-to {
   @apply opacity-0 transform translate-y-4;
-}
-
-/* 消息气泡样式 */
-.ai-sidebar .prose {
-  @apply mb-0;
-}
-
-.ai-sidebar .prose-sm {
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.ai-sidebar .prose-sm p {
-  @apply mb-2;
-}
-
-.ai-sidebar .prose-sm pre {
-  @apply p-3 my-2 rd-lg overflow-x-auto;
-  background-color: #f8f9fa;
-}
-
-.ai-sidebar .prose-sm code {
-  @apply font-mono text-xs;
-}
-
-.ai-sidebar .prose-sm ul,
-.ai-sidebar .prose-sm ol {
-  @apply mb-2 pl-5;
-}
-
-.ai-sidebar .prose-sm blockquote {
-  @apply pl-3 my-2 border-l-4 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400;
-}
-
-/* 代码高亮样式 */
-.ai-sidebar .hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  color: #333;
-  background: #f8f9fa;
-}
-
-.ai-sidebar .hljs-comment,
-.ai-sidebar .hljs-quote {
-  color: #998;
-  font-style: italic;
-}
-
-.ai-sidebar .hljs-keyword,
-.ai-sidebar .hljs-selector-tag,
-.ai-sidebar .hljs-subst {
-  color: #d73a49;
-  font-weight: bold;
-}
-
-.ai-sidebar .hljs-number,
-.ai-sidebar .hljs-literal,
-.ai-sidebar .hljs-variable,
-.ai-sidebar .hljs-template-variable,
-.ai-sidebar .hljs-tag .hljs-attr {
-  color: #005cc5;
-}
-
-.ai-sidebar .hljs-string,
-.ai-sidebar .hljs-doctag {
-  color: #032f62;
-}
-
-.ai-sidebar .hljs-title,
-.ai-sidebar .hljs-section,
-.ai-sidebar .hljs-selector-id {
-  color: #6f42c1;
-  font-weight: bold;
-}
-
-.ai-sidebar .hljs-subst {
-  font-weight: normal;
-}
-
-.ai-sidebar .hljs-type,
-.ai-sidebar .hljs-class .hljs-title {
-  color: #458;
-  font-weight: bold;
-}
-
-.ai-sidebar .hljs-tag,
-.ai-sidebar .hljs-name,
-.ai-sidebar .hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
-
-.ai-sidebar .hljs-regexp,
-.ai-sidebar .hljs-link {
-  color: #009926;
-}
-
-.ai-sidebar .hljs-symbol,
-.ai-sidebar .hljs-bullet {
-  color: #990073;
-}
-
-.ai-sidebar .hljs-built_in,
-.ai-sidebar .hljs-builtin-name {
-  color: #0086b3;
-}
-
-.ai-sidebar .hljs-meta {
-  color: #999;
-  font-weight: bold;
-}
-
-.ai-sidebar .hljs-deletion {
-  background: #fdd;
-}
-
-.ai-sidebar .hljs-addition {
-  background: #dfd;
-}
-
-.ai-sidebar .hljs-emphasis {
-  font-style: italic;
-}
-
-.ai-sidebar .hljs-strong {
-  font-weight: bold;
-}
-
-/* 用户消息样式 */
-.ai-sidebar .user-message {
-  @apply bg-blue-100 dark:bg-blue-900/30;
-}
-
-/* AI消息样式 */
-.ai-sidebar .ai-message {
-  @apply bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700;
 }
 </style>
