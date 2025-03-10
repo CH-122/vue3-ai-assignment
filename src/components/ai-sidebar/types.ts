@@ -5,23 +5,24 @@ export interface Message {
 }
 
 export interface AiSidebarConfig {
-  apiKey: string
-  apiUrl?: string
-  defaultPrompt?: string
-  placeholder?: string
-  theme?: 'light' | 'dark'
-  position?: 'left' | 'right'
-  width?: number
-  minWidth?: number
-  maxWidth?: number
-  showCloseButton?: boolean
-  showResizeHandle?: boolean
-  showScrollToBottom?: boolean
-  showAskQuestion?: boolean
+  apiKey: string // Dify API密钥
+  apiUrl?: string // Dify API地址
+  defaultPrompt?: string // 默认提示
+  placeholder?: string // 输入框提示
+  theme?: 'light' | 'dark' // 主题
+  position?: 'left' | 'right' // 位置
+  width?: number // 宽度
+  minWidth?: number // 最小宽度
+  maxWidth?: number // 最大宽度
+  showCloseButton?: boolean // 是否显示关闭按钮
+  showResizeHandle?: boolean // 是否显示可调整大小的手柄
+  showScrollToBottom?: boolean // 是否显示滚动到底部的按钮
+  showAskQuestion?: boolean // 是否显示提问按钮
 }
 
 // 发送消息的参数接口
 export interface SendMessageParams {
+  conversation_id?: string
   content: string
   question_type?: string
   question_title?: string

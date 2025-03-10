@@ -32,12 +32,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/vue3-ai-sidebar.git"
+    "url": "https://github.com/CH-122/vue3-ai-assignment"
   },
-  "bugs": {
-    "url": "https://github.com/yourusername/vue3-ai-sidebar/issues"
-  },
-  "homepage": "https://github.com/yourusername/vue3-ai-sidebar#readme",
+  "homepage": "https://github.com/CH-122/vue3-ai-assignment#readme",
   "peerDependencies": {
     "@vueuse/core": "^10.0.0",
     "vue": "^3.3.0"
@@ -60,6 +57,7 @@
     "@unocss/preset-icons": "66.1.0-beta.3",
     "@unocss/preset-typography": "66.1.0-beta.3",
     "@unocss/preset-wind": "66.1.0-beta.3",
+    "@unocss/transformer-variant-group": "66.1.0-beta.3",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^8.57.0",

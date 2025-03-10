@@ -5,6 +5,7 @@ import {
   presetIcons,
   presetTypography,
 } from 'unocss'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export default defineConfig({
   presets: [
@@ -13,6 +14,7 @@ export default defineConfig({
     presetIcons(), // 图标支持
     presetTypography(), // 排版预设
   ],
+  transformers: [transformerVariantGroup()],
   // 自定义规则
   rules: [
     // 自定义规则示例

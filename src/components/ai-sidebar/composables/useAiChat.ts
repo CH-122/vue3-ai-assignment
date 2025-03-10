@@ -10,7 +10,7 @@ export function useAiChat(config: AiSidebarConfig) {
   const messages = ref<Message[]>([])
   const isLoading = ref(false)
   const error = ref<string | null>(null)
-  const conversationId = ref<string | null>(null)
+  const conversationId = ref('')
 
   async function sendMessage(params: SendMessageParams) {
     try {
@@ -59,6 +59,7 @@ export function useAiChat(config: AiSidebarConfig) {
           question_type: params.question_type,
           question_title: params.question_title,
           question_options: params.question_options,
+          dialogue_type: 'analysis',
         }
       }
 
@@ -143,7 +144,7 @@ export function useAiChat(config: AiSidebarConfig) {
 
   function clearMessages() {
     messages.value = []
-    conversationId.value = null
+    conversationId.value = ''
     error.value = null
   }
 

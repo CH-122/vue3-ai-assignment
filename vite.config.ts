@@ -3,10 +3,10 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 import UnoCSS from 'unocss/vite'
 import {
-  presetWind,
   presetAttributify,
   presetIcons,
   presetTypography,
+  transformerDirectives,
 } from 'unocss'
 
 // https://vite.dev/config/
@@ -14,14 +14,17 @@ export default defineConfig({
   server: {
     port: 8099,
   },
+  envDir: './env',
   plugins: [
     vue(),
     UnoCSS({
       presets: [
-        presetWind(), // Tailwind/Windi CSS 兼容预设
         presetAttributify(), // 属性化模式支持
         presetIcons(), // 图标支持
         presetTypography(), // 排版预设
+      ],
+      transformers: [
+        transformerDirectives(), // 启用 @apply 指令支持
       ],
       // 自定义规则
       rules: [

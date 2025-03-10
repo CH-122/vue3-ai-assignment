@@ -163,6 +163,8 @@
       </div>
       <el-checkbox
         v-if="config.showAskQuestion"
+        @change="handleAskQuestionChange"
+        v-model="isAskQuestion"
         label="是否询问题目相关内容"
       ></el-checkbox>
     </div>
@@ -287,11 +289,14 @@ const props = withDefaults(
   }
 )
 
+const isAskQuestion = ref(props.config.showAskQuestion || false)
+
 // 定义事件
 const emit = defineEmits<{
   close: []
-  analysis: []
+  analysis: [conversation_id: string]
   send: [params: SendMessageParams]
+  askQuestion: [isAskQuestion: boolean]
 }>()
 
 // 获取当前组件实例，用于检查是否有事件监听器
@@ -312,9 +317,8 @@ const currentWidth = ref(props.config.width || 480)
 const inputMessage = ref('')
 const messageListRef = ref()
 const isResizing = ref(false)
-const { messages, isLoading, sendMessage, clearMessages } = useAiChat(
-  props.config
-)
+const { messages, isLoading, conversationId, sendMessage, clearMessages } =
+  useAiChat(props.config)
 
 // 监听键盘事件，按ESC关闭侧边栏
 onMounted(() => {
@@ -358,6 +362,7 @@ async function handleSend() {
 
   // 触发send事件，让外部组件处理发送逻辑
   const params: SendMessageParams = {
+    conversation_id: conversationId.value,
     content: message,
     question_type: '',
     question_title: '',
@@ -367,30 +372,7 @@ async function handleSend() {
 
   // 如果没有监听send事件，则使用默认的发送逻辑
   if (!hasListener('send')) {
-    await sendMessage({
-      content: message,
-      question_type: 'SingleChoice',
-      question_title:
-        '<p>2111Java语言编译器的命令是（&nbsp;&nbsp;&nbsp;&nbsp;）。</p>',
-      question_options: JSON.stringify([
-        {
-          id: 'A',
-          content: '<p>word.exe</p>',
-        },
-        {
-          id: 'B',
-          content: '<p>notepad.exe</p>',
-        },
-        {
-          id: 'C',
-          content: '<p>javac.exe</p>',
-        },
-        {
-          id: 'D',
-          content: '<p>windows</p>',
-        },
-      ]),
-    })
+    throw new Error('请实现send事件')
   }
 
   // 滚动到底部
@@ -502,34 +484,11 @@ function stopResize(e: MouseEvent) {
 async function analysis() {
   console.log('analysis')
   // 触发analysis事件，让外部组件处理解析逻辑
-  emit('analysis')
+  emit('analysis', conversationId.value)
 
   // 如果没有监听analysis事件，则使用默认的解析逻辑
   if (!hasListener('analysis')) {
-    await sendMessage({
-      content: '请解析当前题目',
-      question_type: 'SingleChoice',
-      question_title:
-        '<p>2111Java语言编译器的命令是（&nbsp;&nbsp;&nbsp;&nbsp;）。</p>',
-      question_options: JSON.stringify([
-        {
-          id: 'A',
-          content: '<p>word.exe</p>',
-        },
-        {
-          id: 'B',
-          content: '<p>notepad.exe</p>',
-        },
-        {
-          id: 'C',
-          content: '<p>javac.exe</p>',
-        },
-        {
-          id: 'D',
-          content: '<p>windows</p>',
-        },
-      ]),
-    })
+    throw new Error('请实现analysis事件')
   }
 
   // 滚动到底部
@@ -540,6 +499,11 @@ async function analysis() {
       }
     }, 100)
   }
+}
+
+function handleAskQuestionChange() {
+  console.log('handleAskQuestionChange', isAskQuestion.value)
+  emit('askQuestion', isAskQuestion.value)
 }
 
 // 暴露方法给父组件
